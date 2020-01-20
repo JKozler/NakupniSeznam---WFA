@@ -14,6 +14,7 @@ namespace NakupSeznam
     {
         List<Item> list = new List<Item>();
         int i = 0;
+        int pointYADD = 75;
         int pointXText = 30;
         int pointXBtn = 450;
         int pointXCheck = 340;
@@ -28,6 +29,7 @@ namespace NakupSeznam
             i++;
             TextBox a = new TextBox();
             a.Name = "Text" + i;
+            a.Width = 250;
             CheckBox ch = new CheckBox();
             ch.Name = "Check" + i;
             Button btn = new Button();
@@ -43,8 +45,10 @@ namespace NakupSeznam
             panel2.Controls.Add(a);
             panel2.Show();
             pointYText += 25;
+            pointYADD += 25;
             Item item = new Item(btn, a, ch);
             list.Add(item);
+            AddClick.Location = new Point(35, pointYADD);
         }
         private void DynamicButton_Click(object sender, EventArgs e)
         {
@@ -68,6 +72,8 @@ namespace NakupSeznam
                 list[y].Check.Location = new Point(list[y].Check.Location.X, list[y].Check.Location.Y - 25);
             }
             pointYText -= 25;
+            pointYADD -= 25;
+            AddClick.Location = new Point(35, pointYADD);
         }
     }
     class Item
